@@ -4,7 +4,27 @@ module.exports = withNativeFederation({
   name: 'shell-angular21',
 
   shared: {
-    ...shareAll({ singleton: true, strictVersion: true, requiredVersion: 'auto' }),
+    ...shareAll({
+      singleton: true,
+      strictVersion: true,
+      requiredVersion: 'auto',
+    }),
+
+    '@angular/cdk': {
+      singleton: true,
+      strictVersion: true,
+      requiredVersion: 'auto',
+    },
+    '@angular/material': {
+      singleton: true,
+      strictVersion: true,
+      requiredVersion: 'auto',
+    },
+    '@angular/animations': {
+      singleton: true,
+      strictVersion: true,
+      requiredVersion: 'auto',
+    },
   },
 
   skip: [
@@ -12,6 +32,7 @@ module.exports = withNativeFederation({
     'rxjs/fetch',
     'rxjs/testing',
     'rxjs/webSocket',
+    '@platform/i18n',
     // Add further packages you don't need at runtime
   ],
 
