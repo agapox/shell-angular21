@@ -1,0 +1,13 @@
+{
+  "shell": {
+    "title:": "Shell Angular 21 Español",
+    "text1": "Este es el componente mfe21-host del Shell Angular 21",
+    "text2": "Componente legacy-host en la Shell Angular 21",
+    "text3": "Abajo cargamos el mfe-angular13"
+  },
+  "common": {
+    "hello": "Hola",
+    "english": "Inglés",
+    "spanish": "Español"
+  }
+}

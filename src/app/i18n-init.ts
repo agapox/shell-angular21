@@ -1,4 +1,4 @@
-import { getStoredLanguage, setGlobalLanguage } from '../../../platform-i18n/language-bus';
+import { getStoredLanguage, setGlobalLanguage } from '@platform/i18n';
 
 export function initLanguage() {
   const lang = getStoredLanguage();

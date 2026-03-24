@@ -1,6 +1,16 @@
 <div style="margin: auto; min-height: 100vh; padding: 2rem;">
   <div style="display: grid;max-width: 1280px; margin: auto;">
-    <h1>Shell Angular 21</h1>
+    <div>
+      <mat-button-toggle-group
+        [formControl]="langControl"
+        [hideSingleSelectionIndicator]="true"
+        aria-label="Language">
+        <mat-button-toggle value="en">{{ 'common.english' | translate }}</mat-button-toggle>
+        <mat-button-toggle value="es">{{ 'common.spanish' | translate }}</mat-button-toggle>
+      </mat-button-toggle-group>
+    </div>
+
+    <h1>{{ 'common.hello' | translate }} {{ 'shell.title' | translate }}</h1>
     <div style="display: grid; gap: 2rem;margin: auto;">
       <app-legacy-host></app-legacy-host>
 
