@@ -13,7 +13,7 @@ export class Mfe21Host implements OnInit {
   private vcr = inject(ViewContainerRef);
 
   async ngOnInit() {
-    const module = await loadRemoteModule('mfe1', './Component');
+    const module = await loadRemoteModule('mfe-angular21', './Component');
     this.vcr.createComponent(module.RemoteEntry);
   }
 }
