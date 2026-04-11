@@ -21,6 +21,7 @@
     "@angular/material": "^21.2.3",
     "@angular/platform-browser": "^21.2.0",
     "@angular/router": "^21.2.0",
+    "@domain/users-sdk": "file:../users-sdk",
     "@ngx-translate/core": "^17.0.0",
     "@ngx-translate/http-loader": "^17.0.0",
     "@platform/i18n": "file:../platform-i18n",

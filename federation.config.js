@@ -9,29 +9,20 @@ module.exports = withNativeFederation({
       strictVersion: true,
       requiredVersion: 'auto',
     }),
-
-    '@angular/cdk': {
-      singleton: true,
-      strictVersion: true,
-      requiredVersion: 'auto',
-    },
-    '@angular/material': {
-      singleton: true,
-      strictVersion: true,
-      requiredVersion: 'auto',
-    },
+    '@angular/core': { singleton: true, strictVersion: true, requiredVersion: 'auto' },
+    '@angular/common': { singleton: true, strictVersion: true, requiredVersion: 'auto' },
+    '@angular/material': { singleton: true, strictVersion: true, requiredVersion: 'auto' },
+    '@angular/cdk': { singleton: true, strictVersion: true, requiredVersion: 'auto' },
     '@angular/animations': {
       singleton: true,
       strictVersion: true,
       requiredVersion: 'auto',
     },
+    'rxjs': { singleton: true, strictVersion: true, requiredVersion: 'auto' },
+    '@domain/users-sdk': { singleton: true, strictVersion: true, requiredVersion: 'auto' }
   },
 
   skip: [
-    'rxjs/ajax',
-    'rxjs/fetch',
-    'rxjs/testing',
-    'rxjs/webSocket',
     '@platform/i18n',
     // Add further packages you don't need at runtime
   ],
