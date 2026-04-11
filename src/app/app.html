@@ -13,9 +13,21 @@
     <h1>{{ 'common.hello' | translate }} {{ 'shell.title' | translate }}</h1>
     {{ 'shell.title' | translate }}
     <div style="display: grid; gap: 2rem;margin: auto;">
-      <app-legacy-host></app-legacy-host>
-
+      @if (selectedUser()) {
+        <div style="display: flex; gap: 1rem; align-items: center; background-color: white; padding: 1rem; border-radius: 12px">
+          <div>
+            <p>{{ 'shell.selectedUser' | translate }}</p>
+            <h3>
+              {{ 'shell.name' | translate }}: {{ selectedUser().firstName }} {{ selectedUser().lastName }}
+              <br/>
+              {{ 'shell.ein' | translate }}: {{ selectedUser().ein }}
+            </h3>
+          </div>
+        </div>
+      }
       <app-mfe21-host></app-mfe21-host>
+      
+      <app-legacy-host></app-legacy-host>
 
       <h3>Router Outlet</h3>
       <router-outlet></router-outlet>

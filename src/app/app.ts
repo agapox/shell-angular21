@@ -5,9 +5,9 @@ import { Mfe21Host } from './mfe21-host/mfe21-host';
 import { AppLanguage, getStoredLanguage, onGlobalLanguageChange, setGlobalLanguage } from '@platform/i18n';
 import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatListModule } from '@angular/material/list';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
-
-
+import { getSelectedUser, onSelectedUserChange } from '@domain/users-sdk';
 
 @Component({
   selector: 'app-root',
@@ -16,6 +16,7 @@ import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
     FormsModule,
     ReactiveFormsModule,
     MatButtonToggleModule,
+    MatListModule,
     TranslatePipe,
     LegacyHost,
     Mfe21Host,
@@ -27,6 +28,8 @@ export class App implements OnInit, OnDestroy {
   langControl = new FormControl<AppLanguage | null>(null);
   translateService = inject(TranslateService);
   private removeLanguageListener?: () => void;
+  selectedUser = signal<any | null>(getSelectedUser());
+  private unsubscribeSelectedUser?: () => void;
 
   ngOnInit() {
     const lang = getStoredLanguage();
@@ -40,6 +43,12 @@ export class App implements OnInit, OnDestroy {
     });
 
     this.onFormChange();
+
+    // Suscribirse al usuario seleccionado global (user-bus)
+    this.unsubscribeSelectedUser = onSelectedUserChange((user) => {
+      this.selectedUser.update(() => user);
+      console.log('Selected user in Shell (user-bus):', user);
+    });
   }
 
   onFormChange() {
@@ -51,5 +60,6 @@ export class App implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.removeLanguageListener?.();
+    this.unsubscribeSelectedUser?.();
   }
 }
