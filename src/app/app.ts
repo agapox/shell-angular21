@@ -7,7 +7,12 @@ import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatListModule } from '@angular/material/list';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { getSelectedUser, onSelectedUserChange } from '@domain/users-sdk';
+import {
+  getSelectedUser,
+  onSelectedUserChange,
+  getSelectedUser2,
+  onSelectedUserChange2,
+} from '@domain/users-sdk';
 
 @Component({
   selector: 'app-root',
@@ -31,6 +36,9 @@ export class App implements OnInit, OnDestroy {
   selectedUser = signal<any | null>(getSelectedUser());
   private unsubscribeSelectedUser?: () => void;
 
+  selectedUser2 = signal<any | null>(getSelectedUser2());
+  private unsubscribeSelectedUser2?: () => void;
+
   ngOnInit() {
     const lang = getStoredLanguage();
 
@@ -49,6 +57,11 @@ export class App implements OnInit, OnDestroy {
       this.selectedUser.update(() => user);
       console.log('Selected user in Shell (user-bus):', user);
     });
+
+    this.unsubscribeSelectedUser2 = onSelectedUserChange2((user) => {
+      this.selectedUser2.update(() => user);
+      console.log('Selected user in Shell (user-bus):', user);
+    });
   }
 
   onFormChange() {
@@ -61,5 +74,6 @@ export class App implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.removeLanguageListener?.();
     this.unsubscribeSelectedUser?.();
+    this.unsubscribeSelectedUser2?.();
   }
 }

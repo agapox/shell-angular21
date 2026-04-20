@@ -7,7 +7,9 @@
     "users": "Users",
     "selectedUser": "Selected User in Shell Angular 21:",
     "name": "Name",
-    "ein": "EIN Document"
+    "ein": "EIN Document",
+    "documentNumber": "Document Number",
+    "availableLem": "Available LEM"
   },
   "common": {
     "hello": "Hello",

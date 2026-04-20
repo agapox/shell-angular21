@@ -11,7 +11,6 @@ export function loadRemoteScript(src: string): Promise<void> {
     script.async = false;
 
     script.onload = () => {
-      console.log('[loaded]', src);
       resolve();
     };
 

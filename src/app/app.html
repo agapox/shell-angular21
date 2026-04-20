@@ -13,6 +13,20 @@
     <h1>{{ 'common.hello' | translate }} {{ 'shell.title' | translate }}</h1>
     {{ 'shell.title' | translate }}
     <div style="display: grid; gap: 2rem;margin: auto;">
+      @if (selectedUser2()) {
+        <div style="display: flex; gap: 1rem; align-items: center; background-color: white; padding: 1rem; border-radius: 12px">
+          <div>
+            <p>{{ 'shell.selectedUser' | translate }}</p>
+            <h3>
+              {{ 'shell.name' | translate }}: {{ selectedUser2().customer[0].customerDetail.fullName }}
+              <br/>
+              {{ 'shell.documentNumber' | translate }}: {{ selectedUser2().data.identificationId }}
+              <br/>
+              {{ 'shell.availableLem' | translate }}: {{ selectedUser2().data.lineCreditValues.amountAvailableLEM }}
+            </h3>
+          </div>
+        </div>
+      }
       @if (selectedUser()) {
         <div style="display: flex; gap: 1rem; align-items: center; background-color: white; padding: 1rem; border-radius: 12px">
           <div>
